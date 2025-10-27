@@ -15,7 +15,7 @@ function ChatWindow() {
         setNewChat(false);
 
         try {
-            const res = await fetch("http://localhost:8080/api/chat", {
+            const res = await fetch("https://chatclone-0k0t.onrender.com", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: prompt, threadId: currThreadId }),
