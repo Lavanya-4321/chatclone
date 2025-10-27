@@ -1,0 +1,136 @@
+/* Sidebar base */
+.sidebar {
+    background-color: #171717;
+    color: #b4b4b4;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+/* Sidebar button */
+button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: solid 0.5px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.logo {
+    height: 25px;
+    width: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+button span {
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: rgba(180, 180, 180, 0.05);
+}
+
+/* Thread list */
+.history {
+    margin: 10px;
+    padding: 10px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.history li {
+    list-style-type: none;
+    cursor: pointer;
+    padding: 2px 5px;
+    margin-bottom: 0.3rem;
+    font-size: 14px;
+    border: solid 10px transparent;
+    position: relative;
+}
+
+.history li:hover {
+    background-color: rgba(180, 180, 180, 0.05);
+    border-radius: 10px;
+}
+
+.fa-trash {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+}
+
+.history li:hover .fa-trash {
+    opacity: 1;
+    color: #fff;
+}
+
+.fa-trash:hover {
+    color: #f87171 !important;
+}
+
+.highlighted {
+    background-color: rgba(180, 180, 180, 0.05);
+    border-radius: 10px;
+}
+
+.sign {
+    padding: 10px;
+    margin: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-top: solid 0.25px rgba(255, 255, 255, 0.5);
+}
+
+/* Hamburger icon */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    z-index: 110; /* always on top */
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Desktop sidebar */
+@media (min-width: 768px) {
+    .sidebar {
+        position: relative;
+        transform: translateX(0);
+        height: 100vh;
+    }
+    .hamburger {
+        display: none;
+    }
+}
+
+/* Mobile sidebar */
+@media (max-width: 767px) {
+    .sidebar {
+        position: fixed;
+        top: 50px; /* start below hamburger */
+        left: 0;
+        height: calc(100vh - 50px);
+        transform: translateX(-100%);
+        z-index: 100;
+        border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: block;
+    }
+}

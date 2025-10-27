@@ -1,0 +1,239 @@
+html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Main layout */
+.chatWindow {
+    background-color: #212121;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #1a1a1a;
+    z-index: 10;
+}
+
+.navbar .brand {
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.userIconDiv {
+    cursor: pointer;
+}
+
+.userIcon {
+    background-color: #339cff;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/* Dropdown */
+.dropDown {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 180px;
+    background-color: #323232;
+    padding: 0.5rem 0.3rem;
+    border-radius: 6px;
+    text-align: left;
+    z-index: 100;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropDownItem {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropDownItem:hover {
+    background-color: rgba(180, 180, 180, 0.1);
+    border-radius: 6px;
+}
+
+/* Chat messages */
+.chatMessagesContainer {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+.userMessage, .assistantMessage {
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 75%;
+    word-wrap: break-word;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.userMessage {
+    align-self: flex-end;
+    background-color: #2a2a2a;
+}
+
+.assistantMessage {
+    align-self: flex-start;
+    background-color: #333;
+}
+
+/* Code block */
+.codeBlock {
+    background-color: #1e1e1e;
+    color: #00ff88;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    margin-top: 0.5rem;
+}
+
+/* Loader */
+.loaderWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Chat input */
+.chatInput {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputBox {
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    display: flex;
+}
+
+.inputBox input {
+    width: 100%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px 50px 15px 20px;
+    font-size: 0.95rem;
+    border-radius: 14px;
+    color: #fff;
+}
+
+.inputBox input:focus {
+    outline: none;
+}
+
+#submit {
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    font-size: 18px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #339cff;
+}
+
+#submit:hover {
+    color: #fff;
+}
+
+.info {
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+    color: #b4b4b4;
+    text-align: center;
+}
+
+/* 📱 Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+
+    .chatMessagesContainer {
+        padding: 0.8rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .userMessage, .assistantMessage {
+        max-width: 90%;
+        font-size: 0.9rem;
+    }
+
+    .inputBox {
+        max-width: 100%;
+    }
+
+    .inputBox input {
+        padding: 12px 45px 12px 15px;
+        font-size: 0.9rem;
+    }
+
+    #submit {
+        height: 32px;
+        width: 32px;
+        font-size: 16px;
+        right: 8px;
+    }
+
+    .userIcon {
+        height: 30px;
+        width: 30px;
+        font-size: 0.9rem;
+    }
+
+    .dropDown {
+        right: 10px;
+        width: 150px;
+        font-size: 0.85rem;
+    }
+}
